@@ -1,0 +1,39 @@
+<%- include('head.ejs') %>
+    <main>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 post-wrapper">
+                    <h2 class="post-title"><%= posts.title %></h2>
+                    <p class="post-date"><%= posts.created.toLocaleDateString() %></p>
+                    <% if(posts.image) { %>
+                        <img src="<%= posts.image %>" alt="">
+                    <% } %>
+                    <p class="post-content"><%= posts.body %></p>
+                    <div class="btn-toolbar" role="toolbar">
+                    <form method="GET" action="/editPost/<%= posts.id %>">
+                        <div class="btn-group mr-2" role="group">
+                            <button class="form-control btn-success"  type="submit">Edit post</button>
+                        </div>
+                    </form>
+                    <form method="POST" action="/delete">
+                        <div class="btn-group" role="group">
+                            <input name="id" type="hidden" value="<%= post.id %>"/>
+                            <button class="form-control btn-danger"  type="submit">Delete post</button>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12"> 
+                    <ul class="soc sp">
+                        <li><a class="soc-twitter" href="https://twitter.com/home?status=<%= fullUrl %>"></a></li>
+                        <li><a class="soc-facebook" href="https://www.facebook.com/sharer/sharer.php?u=<%= fullUrl %>"></a></li>
+                        <li><a class="soc-pinterest" href="https://pinterest.com/pin/create/button/?url=&media=&description=<%= fullUrl %>"></a></li>
+                        <li><a class="soc-linkedin soc-icon-last" href="https://www.linkedin.com/shareArticle?mini=true&url=&title=&summary=&source=<%= fullUrl %>"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+<%- include('foot.ejs') %>

@@ -1,0 +1,30 @@
+<%- include('head.ejs') %>
+    <main>
+        <div class="container">
+            <% if (action == 'create') {%>
+                <form class="create-wrapper" action="/<%= action %>" method="post">
+            <% } else if (action == 'edit') {%>
+                <form class="create-wrapper" action="/<%= action %>" method="post">
+            <% } %>
+                <div class="form-group"> 
+                    <label for="title">Title</label>
+                    <input class="form-control" type="text" name="title" id="title" value="<%= (action == 'edit' && post.title) ? post.title : '' %>">
+                    <label for="image">Image URL</label>
+                    <input class="form-control" type="text" name="image" id="image" value="<%= (action == 'edit' && post.image) ? post.image : '' %>">
+                    <label for="body">Post content</label>
+                    <textarea class="form-control"  name="body" id="body" cols="30" rows="10"><%= (action == 'edit' && post.body) ? post.body : '' %></textarea>
+                    <% if (action == 'create') { %>
+                        <div class="btn-group" role="group">
+                            <button class="form-control btn-success"  type="submit">Create post</button>
+                        </div>
+                    <% } else if (action == 'edit') { %>
+                        <input name="id" type="hidden" value="<%= post.id %>"/>
+                        <div class="btn-group" role="group">
+                            <button class="form-control btn-success" type="submit">Edit post</button>
+                        </div>   
+                    <% } %>
+                </div>
+            </form>
+        </div>
+    </main>
+<%- include('foot.ejs') %>

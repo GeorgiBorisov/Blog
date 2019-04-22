@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <title><%= pageTitle %></title>
+</head>
+<body>
+<header>
+    <div class="container-fluid menu-container">
+        <div class="row">
+            <div class="mobile-menu">
+                <div class="bar-one"></div>
+                <div class="bar-two"></div>
+                <div class="bar-three"></div>
+            </div>
+            <ul class="menu-wrapper">
+                <li><a href="/">Home</a></li>
+                <% if(!loggedIn) { %>
+                    <li><a href="/register">Register</a></li>
+                    <li><a href="/login">Login</a></li>
+                <% } %>   
+                <% if(loggedIn) { %> 
+                    <li><a href="/posts">Posts</a></li>
+                    <li><a href="/create">Create post</a></li>
+                    <li><a href="/update">Update profile</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+</header>

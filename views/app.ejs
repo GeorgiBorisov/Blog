@@ -1,0 +1,21 @@
+<%- include('head.ejs') %>
+<main>
+<div class="container-fluid homepage-main">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 quote">
+                <h1>“Time is a created thing. To say 'I don't have time,' is like saying, 'I don't want to.” ― Lao Tzu</h1>
+            </div>
+        </div>
+        <div class="row featured-content">
+            <% for(post of faeturedPosts) {%> 
+                <div class="col-md-4 featured-item">
+                    <h2><a href="/post/<%= post.id %>"><%= post.title %></a></h2>
+                    <p><%= post.body %></p>
+                </div>
+            <%}%>
+        </div>
+    </div>
+</div>
+</main>
+<%- include('foot.ejs') %>
